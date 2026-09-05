@@ -45,7 +45,7 @@ Henüz yok: boss, diğer silahlar/yeminler, aktif yetenek, rastgele harita, eşy
 
 ## Test
 
-Linux/macOS, Godot ve ripgrep PATH üzerindeyken:
+Linux/macOS, Godot PATH üzerindeyken:
 
 ```bash
 GODOT_BIN=godot tests/check.sh
