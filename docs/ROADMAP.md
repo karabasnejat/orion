@@ -26,7 +26,7 @@ Temel kaynak: [PRD](PRD.md). Tarih: 2026-09-05. İnsan oyun testi ve satış sü
 
 ## Sıradaki adımlar
 
-1. CI sonucunu ve gerçek renderer menü/arena görüntülerini incele.
+1. Tamamlandı: CI mekanik/renderer doğrulaması geçti, menü ve arena görüntüleri incelendi.
 2. Windows'ta açılış ve fiziksel gamepad kontrolünü yap; bulguları #12'ye ekle.
 3. Beş oyuncuyla ilk his testini uygula; kayıt şablonu VALIDATION.md'de.
 4. Kontrol/vuruş sorunlarını düzelt, ilgili testleri tekrar çalıştır.

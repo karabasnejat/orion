@@ -9,7 +9,7 @@ Bu dal, **Faz 0 proje temeli + Faz 1 dövüş prototipini** içerir. Oynanabilir
 1. [Godot 4.5.1 Standard](https://github.com/godotengine/godot/releases/tag/4.5.1-stable) sürümünü indir.
 2. Bu repoyu klonla ve `codex/phase-1-combat-prototype` dalını aç (PR birleştikten sonra `main`).
 3. Godot Project Manager → **Import** → repodaki `project.godot`.
-4. **F6 yerine F5** ile ana projeyi çalıştır; başlangıç ekranında yeminini seç ve **Ocağı terk et** düğmesine bas.
+4. **F5** ile ana projeyi çalıştır; başlangıç ekranında yeminini seç ve **Ocağı terk et** düğmesine bas.
 
 Komut satırı: `godot --path .` (`godot` yerine yerel Godot çalıştırılabilir dosyanın yolunu kullan).
 

@@ -34,11 +34,14 @@ func _ready() -> void:
 	stats = label(root, Vector2(16, 6), "", 12)
 	bar = ProgressBar.new()
 	bar.position = Vector2(16, 27)
-	bar.size = Vector2(180, 8)
 	bar.show_percentage = false
 	var fill := StyleBoxFlat.new()
 	fill.bg_color = Color("e9936c")
 	bar.add_theme_stylebox_override("fill", fill)
+	var track := StyleBoxFlat.new()
+	track.bg_color = Color("302b35")
+	bar.add_theme_stylebox_override("background", track)
+	bar.size = Vector2(180, 8)
 	root.add_child(bar)
 	oath_label = label(root, Vector2(220, 9), "", 11)
 	progress_label = label(root, Vector2(466, 9), "", 11)
@@ -158,7 +161,7 @@ func show_menu(value: String, detail: String = "") -> void:
 	match mode:
 		"start":
 			menu_title.text = "KÜL YEMİNİ"
-			menu_copy.text = "ORION / FAZ 1\nÜç salonu geç, beş muhafızı yen, doğudaki mühre ulaş.\nSon anda kaç: ilk 100 ms'de saldırıdan sıyrıl, sonraki\nisabeti 2 sn içinde güçlendir. Kaçış bedeli: +0,15 sn."
+			menu_copy.text = "ORION / DÖVÜŞ PROTOTİPİ\nÜç salonu geç, beş muhafızı yen, doğudaki mühre ulaş.\nSon anda kaç: ilk 100 ms'de saldırıdan sıyrıl, sonraki\nisabeti 2 sn içinde güçlendir. Kaçış bedeli: +0,15 sn."
 			start_button.text = "Ocağı terk et"
 		"pause":
 			menu_title.text = "ATEŞ BEKLİYOR"
@@ -170,7 +173,7 @@ func show_menu(value: String, detail: String = "") -> void:
 			start_button.text = "Yeniden doğ"
 		"clear":
 			menu_title.text = "MÜHÜR KIRILDI"
-			menu_copy.text = "Prototip arenasını tamamladın.\nSüre: %.1f sn · Yemin: %s\nBoss ve yeni silahlar Faz 2 kapsamında." % [arena.telemetry.elapsed, "Avcı" if arena.player.hunter_oath else "Yok"]
+			menu_copy.text = "Prototip arenasını tamamladın.\nSüre: %.1f sn · Yemin: %s\nFarklı bir yaklaşım denemek için yeniden doğ." % [arena.telemetry.elapsed, "Avcı" if arena.player.hunter_oath else "Yok"]
 			start_button.text = "Yeni sefer"
 	start_button.grab_focus()
 

@@ -16,6 +16,10 @@ func capture() -> void:
 		push_error("Menu does not fit the logical viewport: " + str(popup_rect))
 		quit(1)
 		return
+	if arena.hud.bar.get_global_rect().end.y > 48:
+		push_error("Health bar overlaps the arena")
+		quit(1)
+		return
 	root.get_texture().get_image().save_png("res://artifacts/menu.png")
 	arena.hud.primary_action()
 	arena.player.position = Vector2(790, 280)

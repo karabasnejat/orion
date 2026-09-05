@@ -5,11 +5,15 @@
 - Godot: **4.5.1.stable.official.f62fdbde1**.
 - Ortam: Linux, headless, 60 Hz fizik.
 - Proje importu: geçti; script/parse hatası yok.
-- Mekanik testleri: **60 kontrol, 0 hata** (ilk çalıştırma).
+- Mekanik testleri: **60 kontrol, 0 hata** (yerel ve GitHub Actions).
 - Araç: `GODOT_BIN=<godot yolu> tests/check.sh`.
 - Ayrıntılı çalışma çıktısı: yerel `artifacts/tests.log`; CI aynı çıktıyı artifact olarak saklar.
 
 Test kapsamı: saldırı pencereleri, aynı hedefe tekrar hasar, kombo hasarı, ağır iptali, zemin çarpışması, hareket hızı, çift zıplama, coyote sınırı, iniş tamponu, tek yönlü platform, kaçış mesafesi/bedeli/duvarı/hava limiti, yemin tetikleme ve bitişi, gerçek yakın dövüş çakışması, nöbetçi ön işareti, iyileşmenin kesilmesi/tamamlanması, mermi ve duvar, ekran dışı okçu, ölüm/yeniden başlama, gamepad kopma bildirimi ve zafer.
+
+- GitHub Actions: [başarılı koşu](https://github.com/karabasnejat/orion/actions/runs/33999840854); mekanik testler ve Xvfb/OpenGL renderer kontrolü geçti.
+- CI menü/arena PNG dosyaları indirilip görsel olarak incelendi; başlangıç menüsü 640×360 mantıksal alana sığıyor, düşman ön işareti ve oyuncu görünür.
+- Temiz CI ortamında eksik ripgrep bağımlılığı saptandı; betik standart grep ile taşınabilir hale getirildi.
 
 ## Henüz doğrulanmayanlar
 
