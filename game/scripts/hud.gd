@@ -43,6 +43,8 @@ func _ready() -> void:
 	bar.add_theme_stylebox_override("background", track)
 	bar.size = Vector2(180, 8)
 	root.add_child(bar)
+	# Apply compact height after the inherited theme minimum has refreshed.
+	bar.set_deferred("size", Vector2(180, 8))
 	oath_label = label(root, Vector2(220, 9), "", 11)
 	progress_label = label(root, Vector2(466, 9), "", 11)
 	hint = label(root, Vector2(16, 337), "", 10)
