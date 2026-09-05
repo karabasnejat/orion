@@ -1,0 +1,37 @@
+name: Godot prototype validation
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: godot-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Godot binary
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 --max-time 120 \
+            https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_linux.x86_64.zip \
+            --output /tmp/godot.zip
+          echo '02ec53d1cc7dbb9cc6355393c61b9ab43d1244751a124f10248a4802830788cd  /tmp/godot.zip' | sha256sum --check
+          unzip -q /tmp/godot.zip -d /tmp/godot
+          chmod +x /tmp/godot/Godot_v4.5.1-stable_linux.x86_64
+          echo 'GODOT_BIN=/tmp/godot/Godot_v4.5.1-stable_linux.x86_64' >> "$GITHUB_ENV"
+      - name: Import and run mechanics tests
+        run: tests/check.sh
+      - name: Render menu and arena smoke captures
+        run: xvfb-run -a "$GODOT_BIN" --audio-driver Dummy --rendering-method gl_compatibility --fixed-fps 60 --script tests/capture.gd
+      - name: Upload validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prototype-validation
+          path: artifacts/
