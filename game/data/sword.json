@@ -1,0 +1,9 @@
+{
+  "id": "executioner_sword",
+  "light": [
+    {"damage": 20, "windup": 0.100, "active": 0.083333, "recovery": 0.183333, "cancel_tail": 0.100, "reach": 45},
+    {"damage": 22, "windup": 0.116667, "active": 0.083333, "recovery": 0.200, "cancel_tail": 0.100, "reach": 49},
+    {"damage": 30, "windup": 0.150, "active": 0.100, "recovery": 0.250, "cancel_tail": 0.100, "reach": 57}
+  ],
+  "heavy": {"damage": 45, "windup": 0.300, "active": 0.133333, "recovery": 0.400, "cancel_tail": 0.0, "reach": 65}
+}
